@@ -39,7 +39,7 @@ context('Finding element', () => {
 
     })
 
-    it.only('Then and Wrap methods', () => { 
+    it('Then and Wrap methods', () => { 
 
         // then() function calls JQuery method in order to reuse them and interact with them
         // wrap() method, when you wrap  the previous functions this brings you up with the Cy methods agains inside the THEN() function
@@ -74,5 +74,19 @@ context('Finding element', () => {
         });
 
     })
+    it.only('Trying my Sample', () => { 
+           cy.visit("/");
+           cy.contains("Forms").click();
+        cy.contains("Form Layouts").click();
+        
+        cy.contains("nb-card", "Inline form").then((labelName) => {
+          const JaneDoeTExt = labelName.find('[placeholder="Jane Doe"]').text();
+
+          expect(JaneDoeTExt).to.equal('');
+        });
+
+    })
+
+
 
 })
