@@ -42,7 +42,8 @@ context('Using JavaScriptDateObject', () => {
                 // As Jquery do not have click(), we must wrap the variable to o back to Cy
                 //  Cypress click() method.
                 cy.wrap(input).click()
-                let dateAssert= selectDayFormCurrent(300)
+                let dateAssert = selectDayFormCurrent(3)
+                cy.wrap(input).invoque('prop','value').should('contain',dateAssert)
             })
         //   cy.wrap(input)
         //     .invoke("prop", "value")
